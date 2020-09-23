@@ -73,7 +73,7 @@
         });
       };
 
-      getIDs
+      /*getIDs
         .then((IDs) => {
           console.log(IDs);
           return getSongs(IDs[2]);
@@ -83,7 +83,14 @@
         })
         .catch((error) => {
           console.log("Error!!");
-        });
+        }); */
+      async function getSongsAll() {
+        const IDs = await getIDs;
+        console.log(IDs);
+        const song = await getSongs(IDs[2]);
+        console.log(song);
+      }
+      getSongsAll();
     </script>
   </body>
 </html>
