@@ -21,7 +21,7 @@
 
       first(); */
 
-      function getSongs() {
+      /*function getSongs() {
         setTimeout(() => {
           const songID = [523, 863, 432, 974];
           console.log(songID);
@@ -49,6 +49,41 @@
         }, 1500);
       }
       getSongs();
+      */
+
+      const getIDs = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve([523, 883, 423, 974]);
+        }, 1500);
+      });
+
+      const getSongs = (songID) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(
+            (ID) => {
+              const song = {
+                title: "Bright",
+                Artiste: "Julie and the Phantoms",
+              };
+              resolve(`${ID}: ${song.title}`);
+            },
+            1500,
+            songID
+          );
+        });
+      };
+
+      getIDs
+        .then((IDs) => {
+          console.log(IDs);
+          return getSongs(IDs[2]);
+        })
+        .then((song) => {
+          console.log(song);
+        })
+        .catch((error) => {
+          console.log("Error!!");
+        });
     </script>
   </body>
 </html>
