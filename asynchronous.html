@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asynchronous Javascript</title>
+  </head>
+  <body>
+    <h1>Asynchronous Javascript</h1>
+    <script>
+      /*const second = () => {
+        setTimeout(() => {
+          console.log("Wake up");
+        }, 2000);
+      };
+      const first = () => {
+        console.log("Hello Darrel");
+        second();
+        console.log("Together we will rise");
+      };
+
+      first(); */
+
+      function getSongs() {
+        setTimeout(() => {
+          const songID = [523, 863, 432, 974];
+          console.log(songID);
+
+          setTimeout(
+            (id) => {
+              const song = {
+                title: "Bright",
+                Artiste: "Julie and the Phantoms",
+              };
+              console.log(`${id}: ${song.title}`);
+
+              setTimeout(
+                (Artiste) => {
+                  const song2 = { title: "Stand Tall", Artiste: "Julie" };
+                  console.log(song);
+                },
+                1500,
+                song.Artiste
+              );
+            },
+            1500,
+            songID[2]
+          );
+        }, 1500);
+      }
+      getSongs();
+    </script>
+  </body>
+</html>
